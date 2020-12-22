@@ -38,7 +38,7 @@ open class Item(var name: String, var sellIn: Int, var quality: Int) {
         }
     }
 
-    private fun decrementQuality() {
+    protected fun decrementQuality() {
         if (quality > 0) {
             quality--
         }

@@ -1,6 +1,7 @@
 package com.gildedrose
 
 import org.junit.jupiter.api.Assertions.assertArrayEquals
+import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 
 internal class GildedRoseTest {
@@ -42,5 +43,16 @@ internal class GildedRoseTest {
 
             assertArrayEquals(legacyItems, items)
         }
+    }
+
+    @Test
+    internal fun `Conjured item should decrement quality two times faster`() {
+        val conjured = Conjured("", 3, 6)
+        val gildedRose = GildedRose(arrayOf(conjured))
+
+        gildedRose.incrementQuality()
+
+        val expectedConjured = Conjured("", 2, 4)
+        assertEquals(expectedConjured, conjured)
     }
 }
