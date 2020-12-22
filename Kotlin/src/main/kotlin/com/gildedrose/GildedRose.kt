@@ -11,21 +11,21 @@ class GildedRose(private val items: Array<Item>) {
     private fun update(item: Item) {
         when (item.name) {
             "Aged Brie" -> {
-                incrementQuality(item)
-                decrementSellIn(item)
+                item.incrementQuality()
+                item.decrementSellIn()
                 if (item.sellIn < 0) {
-                    incrementQuality(item)
+                    item.incrementQuality()
                 }
             }
             "Backstage passes to a TAFKAL80ETC concert" -> {
-                incrementQuality(item)
+                item.incrementQuality()
                 if (item.sellIn < 11 && item.quality < 50) {
                     item.quality++
                 }
                 if (item.sellIn < 6 && item.quality < 50) {
                     item.quality++
                 }
-                decrementSellIn(item)
+                item.decrementSellIn()
 
                 if (item.sellIn < 0) {
                     item.quality = 0
@@ -34,29 +34,13 @@ class GildedRose(private val items: Array<Item>) {
             "Sulfuras, Hand of Ragnaros" -> {
             }
             else -> {
-                decrementQuality(item)
-                decrementSellIn(item)
+                item.decrementQuality()
+                item.decrementSellIn()
 
                 if (item.sellIn < 0) {
-                    decrementQuality(item)
+                    item.decrementQuality()
                 }
             }
-        }
-    }
-
-    private fun decrementQuality(item: Item) {
-        if (item.quality > 0) {
-            item.quality--
-        }
-    }
-
-    private fun decrementSellIn(item: Item) {
-        item.sellIn--
-    }
-
-    private fun incrementQuality(item: Item) {
-        if (item.quality < 50) {
-            item.quality++
         }
     }
 }

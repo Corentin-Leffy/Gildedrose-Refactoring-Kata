@@ -25,4 +25,21 @@ open class Item(var name: String, var sellIn: Int, var quality: Int) {
         result = 31 * result + quality
         return result
     }
+
+    fun incrementQuality() {
+        if (quality < 50) {
+            quality++
+        }
+    }
+
+    fun decrementQuality() {
+        if (quality > 0) {
+            quality--
+        }
+    }
+
+    fun decrementSellIn() {
+        sellIn--
+    }
+
 }
