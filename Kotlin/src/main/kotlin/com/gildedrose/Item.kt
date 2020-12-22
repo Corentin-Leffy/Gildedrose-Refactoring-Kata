@@ -23,6 +23,15 @@ open class Item(var name: String, var sellIn: Int, var quality: Int) {
         return result
     }
 
+    fun updateQuality() {
+        decrementQuality()
+        decrementSellIn()
+
+        if (sellIn < 0) {
+            decrementQuality()
+        }
+    }
+
     fun incrementQuality() {
         if (quality < 50) {
             quality++
@@ -40,3 +49,7 @@ open class Item(var name: String, var sellIn: Int, var quality: Int) {
     }
 
 }
+
+class BackstagePasses(name: String, sellIn: Int, quality: Int) : Item(name, sellIn, quality)
+class Cheese(name: String, sellIn: Int, quality: Int) : Item(name, sellIn, quality)
+class Legendary(name: String, sellIn: Int, quality: Int) : Item(name, sellIn, quality)

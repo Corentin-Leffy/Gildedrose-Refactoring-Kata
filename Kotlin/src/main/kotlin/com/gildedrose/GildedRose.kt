@@ -33,14 +33,7 @@ class GildedRose(private val items: Array<Item>) {
             }
             "Sulfuras, Hand of Ragnaros" -> {
             }
-            else -> {
-                item.decrementQuality()
-                item.decrementSellIn()
-
-                if (item.sellIn < 0) {
-                    item.decrementQuality()
-                }
-            }
+            else -> item.updateQuality()
         }
     }
 }
