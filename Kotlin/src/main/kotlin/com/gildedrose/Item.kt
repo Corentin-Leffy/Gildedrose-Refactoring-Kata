@@ -38,7 +38,7 @@ open class Item(var name: String, var sellIn: Int, var quality: Int) {
         }
     }
 
-    fun decrementQuality() {
+    private fun decrementQuality() {
         if (quality > 0) {
             quality--
         }
@@ -47,7 +47,5 @@ open class Item(var name: String, var sellIn: Int, var quality: Int) {
     fun decrementSellIn() {
         sellIn--
     }
-
 }
 
-class Cheese(name: String, sellIn: Int, quality: Int) : Item(name, sellIn, quality)
