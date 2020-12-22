@@ -2,11 +2,7 @@ package com.gildedrose
 
 class BackstagePasses(name: String, sellIn: Int, quality: Int) : Item(name, sellIn, quality) {
     override fun updateQuality() {
-        incrementQuality()
-        if (sellIn <= 10) {
-            incrementQuality()
-        }
-        if (sellIn <= 5) {
+        repeat(timesToIncrementQuality()) {
             incrementQuality()
         }
 
@@ -15,5 +11,11 @@ class BackstagePasses(name: String, sellIn: Int, quality: Int) : Item(name, sell
         if (sellIn < 0) {
             quality = 0
         }
+    }
+
+    private fun timesToIncrementQuality() = when {
+        sellIn <= 5 -> 3
+        sellIn <= 10 -> 2
+        else -> 1
     }
 }
