@@ -3,11 +3,11 @@ package com.gildedrose
 class BackstagePasses(name: String, sellIn: Int, quality: Int) : Item(name, sellIn, quality) {
     override fun updateQuality() {
         incrementQuality()
-        if (sellIn < 11 && quality < 50) {
-            quality++
+        if (sellIn < 11) {
+            incrementQuality()
         }
-        if (sellIn < 6 && quality < 50) {
-            quality++
+        if (sellIn < 6) {
+            incrementQuality()
         }
         decrementSellIn()
 

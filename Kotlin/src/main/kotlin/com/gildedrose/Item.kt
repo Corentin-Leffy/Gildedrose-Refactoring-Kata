@@ -32,7 +32,7 @@ open class Item(var name: String, var sellIn: Int, var quality: Int) {
         }
     }
 
-    fun incrementQuality() {
+    protected fun incrementQuality() {
         if (quality < 50) {
             quality++
         }
@@ -44,7 +44,7 @@ open class Item(var name: String, var sellIn: Int, var quality: Int) {
         }
     }
 
-    fun decrementSellIn() {
+    protected fun decrementSellIn() {
         sellIn--
     }
 }
