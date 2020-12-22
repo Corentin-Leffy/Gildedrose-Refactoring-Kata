@@ -17,23 +17,11 @@ class GildedRose(private val items: Array<Item>) {
                     item.incrementQuality()
                 }
             }
-            "Backstage passes to a TAFKAL80ETC concert" -> {
-                item.incrementQuality()
-                if (item.sellIn < 11 && item.quality < 50) {
-                    item.quality++
-                }
-                if (item.sellIn < 6 && item.quality < 50) {
-                    item.quality++
-                }
-                item.decrementSellIn()
-
-                if (item.sellIn < 0) {
-                    item.quality = 0
-                }
-            }
+            "Backstage passes to a TAFKAL80ETC concert" -> item.updateQuality()
             "Sulfuras, Hand of Ragnaros" -> {
             }
             else -> item.updateQuality()
         }
     }
+
 }
