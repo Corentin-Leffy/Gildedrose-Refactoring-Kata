@@ -33,14 +33,6 @@ internal class GildedRoseTest {
     )
 
     @Test
-    fun foo() {
-        val items = arrayOf(Item("foo", 0, 0))
-        val app = GildedRose(items)
-        app.updateQuality()
-        assertEquals("foo", app.items[0].name)
-    }
-
-    @Test
     internal fun `Legacy Gilded Rose must have the same behaviour then the new Gilded Rose`() {
         val gildedRose = GildedRose(items)
         val legacyGildedRose = LegacyGildedRose(legacyItems)
