@@ -51,4 +51,3 @@ open class Item(var name: String, var sellIn: Int, var quality: Int) {
 }
 
 class Cheese(name: String, sellIn: Int, quality: Int) : Item(name, sellIn, quality)
-class Legendary(name: String, sellIn: Int, quality: Int) : Item(name, sellIn, quality)

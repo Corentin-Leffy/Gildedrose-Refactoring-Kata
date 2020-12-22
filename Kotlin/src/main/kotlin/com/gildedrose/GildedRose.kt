@@ -18,8 +18,7 @@ class GildedRose(private val items: Array<Item>) {
                 }
             }
             "Backstage passes to a TAFKAL80ETC concert" -> item.updateQuality()
-            "Sulfuras, Hand of Ragnaros" -> {
-            }
+            "Sulfuras, Hand of Ragnaros" -> item.updateQuality()
             else -> item.updateQuality()
         }
     }
