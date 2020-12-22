@@ -1,7 +1,6 @@
 package com.gildedrose
 
 import org.junit.jupiter.api.Assertions.assertArrayEquals
-import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 
 internal class GildedRoseTest {
@@ -38,7 +37,7 @@ internal class GildedRoseTest {
         val legacyGildedRose = LegacyGildedRose(legacyItems)
 
         for (i in 0..100) {
-            gildedRose.updateQuality()
+            gildedRose.incrementQuality()
             legacyGildedRose.updateQuality()
 
             assertArrayEquals(legacyItems, items)

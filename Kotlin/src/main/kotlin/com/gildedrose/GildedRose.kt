@@ -2,7 +2,7 @@ package com.gildedrose
 
 class GildedRose(private val items: Array<Item>) {
 
-    fun updateQuality() {
+    fun incrementQuality() {
         for (item in items) {
             update(item)
         }
@@ -11,30 +11,21 @@ class GildedRose(private val items: Array<Item>) {
     private fun update(item: Item) {
         when (item.name) {
             "Aged Brie" -> {
-                if (item.quality < 50) {
-                    item.quality++
-                }
-
-                item.sellIn--
-
-                if (item.sellIn < 0 && item.quality < 50) {
-                    item.quality++
+                incrementQuality(item)
+                decrementSellIn(item)
+                if (item.sellIn < 0) {
+                    incrementQuality(item)
                 }
             }
             "Backstage passes to a TAFKAL80ETC concert" -> {
-                if (item.quality < 50) {
+                incrementQuality(item)
+                if (item.sellIn < 11 && item.quality < 50) {
                     item.quality++
-
-                    if (item.sellIn < 11 && item.quality < 50) {
-                        item.quality++
-                    }
-
-                    if (item.sellIn < 6 && item.quality < 50) {
-                        item.quality++
-                    }
                 }
-
-                item.sellIn--
+                if (item.sellIn < 6 && item.quality < 50) {
+                    item.quality++
+                }
+                decrementSellIn(item)
 
                 if (item.sellIn < 0) {
                     item.quality = 0
@@ -43,15 +34,29 @@ class GildedRose(private val items: Array<Item>) {
             "Sulfuras, Hand of Ragnaros" -> {
             }
             else -> {
-                if (item.quality > 0) {
-                    item.quality--
-                }
-                item.sellIn--
+                decrementQuality(item)
+                decrementSellIn(item)
 
-                if (item.sellIn < 0 && item.quality > 0) {
-                    item.quality--
+                if (item.sellIn < 0) {
+                    decrementQuality(item)
                 }
             }
+        }
+    }
+
+    private fun decrementQuality(item: Item) {
+        if (item.quality > 0) {
+            item.quality--
+        }
+    }
+
+    private fun decrementSellIn(item: Item) {
+        item.sellIn--
+    }
+
+    private fun incrementQuality(item: Item) {
+        if (item.quality < 50) {
+            item.quality++
         }
     }
 }
