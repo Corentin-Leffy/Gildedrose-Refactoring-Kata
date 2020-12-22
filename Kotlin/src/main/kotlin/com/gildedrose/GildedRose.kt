@@ -9,46 +9,46 @@ class GildedRose(private val items: Array<Item>) {
     }
 
     private fun update(item: Item) {
-        if (item.name == "Aged Brie") {
-            if (item.quality < 50) {
-                item.quality = item.quality + 1
-            }
-
-            item.sellIn = item.sellIn - 1
-
-            if (item.sellIn < 0) {
+        when (item.name) {
+            "Aged Brie" -> {
                 if (item.quality < 50) {
                     item.quality = item.quality + 1
                 }
-            }
-        } else if (item.name == "Backstage passes to a TAFKAL80ETC concert") {
-            if (item.quality < 50) {
-                item.quality = item.quality + 1
 
-                if (item.sellIn < 11 && item.quality < 50) {
-                    item.quality = item.quality + 1
-                }
+                item.sellIn = item.sellIn - 1
 
-                if (item.sellIn < 6 && item.quality < 50) {
+                if (item.sellIn < 0 && item.quality < 50) {
                     item.quality = item.quality + 1
                 }
             }
+            "Backstage passes to a TAFKAL80ETC concert" -> {
+                if (item.quality < 50) {
+                    item.quality = item.quality + 1
 
-            item.sellIn = item.sellIn - 1
+                    if (item.sellIn < 11 && item.quality < 50) {
+                        item.quality = item.quality + 1
+                    }
 
-            if (item.sellIn < 0) {
-                item.quality = item.quality - item.quality
+                    if (item.sellIn < 6 && item.quality < 50) {
+                        item.quality = item.quality + 1
+                    }
+                }
+
+                item.sellIn = item.sellIn - 1
+
+                if (item.sellIn < 0) {
+                    item.quality = item.quality - item.quality
+                }
             }
-        } else if (item.name == "Sulfuras, Hand of Ragnaros") {
-
-        } else {
-            if (item.quality > 0) {
-                item.quality = item.quality - 1
+            "Sulfuras, Hand of Ragnaros" -> {
             }
-            item.sellIn = item.sellIn - 1
-
-            if (item.sellIn < 0) {
+            else -> {
                 if (item.quality > 0) {
+                    item.quality = item.quality - 1
+                }
+                item.sellIn = item.sellIn - 1
+
+                if (item.sellIn < 0 && item.quality > 0) {
                     item.quality = item.quality - 1
                 }
             }
