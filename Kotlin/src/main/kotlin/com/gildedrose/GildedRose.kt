@@ -1,6 +1,6 @@
 package com.gildedrose
 
-class GildedRose(var items: Array<Item>) {
+class GildedRose(private val items: Array<Item>) {
 
     fun updateQuality() {
         for (i in items.indices) {
@@ -53,6 +53,4 @@ class GildedRose(var items: Array<Item>) {
             }
         }
     }
-
 }
-
