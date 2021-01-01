@@ -8,7 +8,7 @@ class BackstagePasses(name: String, sellIn: Int, quality: Int) : Item(name, sell
 
         decrementSellIn()
 
-        if (sellIn < 0) {
+        if (hasExpired) {
             quality = 0
         }
     }
