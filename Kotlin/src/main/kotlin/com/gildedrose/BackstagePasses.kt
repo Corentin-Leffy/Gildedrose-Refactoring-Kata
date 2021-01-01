@@ -1,10 +1,10 @@
 package com.gildedrose
 
 class BackstagePasses(name: String, sellIn: Int, quality: Int) : Item(name, sellIn, quality) {
+
     override fun updateQuality() {
         increaseQuality()
         decreaseSellIn()
-
         if (hasExpired) {
             dropQualityToMinimum()
         }

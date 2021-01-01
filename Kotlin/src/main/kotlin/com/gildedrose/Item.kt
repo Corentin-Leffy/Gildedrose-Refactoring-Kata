@@ -8,8 +8,7 @@ open class Item(var name: String, var sellIn: Int, var quality: Int) {
     open fun updateQuality() {
         decreaseQuality()
         decreaseSellIn()
-
-        if (sellIn < Quality.MINIMUM) {
+        if (hasExpired) {
             decreaseQuality()
         }
     }
