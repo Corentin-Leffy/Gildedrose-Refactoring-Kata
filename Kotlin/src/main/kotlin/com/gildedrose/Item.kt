@@ -27,25 +27,30 @@ open class Item(var name: String, var sellIn: Int, var quality: Int) {
         decrementQuality()
         decrementSellIn()
 
-        if (sellIn < 0) {
+        if (sellIn < QUALITY_MIN_THRESHOLD) {
             decrementQuality()
         }
     }
 
     protected fun incrementQuality() {
-        if (quality < 50) {
+        if (quality < QUALITY_MAX_THRESHOLD) {
             quality++
         }
     }
 
     protected fun decrementQuality() {
-        if (quality > 0) {
+        if (quality > QUALITY_MIN_THRESHOLD) {
             quality--
         }
     }
 
     protected fun decrementSellIn() {
         sellIn--
+    }
+
+    companion object {
+        private const val QUALITY_MAX_THRESHOLD = 50
+        private const val QUALITY_MIN_THRESHOLD = 0
     }
 }
 
