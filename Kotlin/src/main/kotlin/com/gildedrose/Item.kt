@@ -1,31 +1,32 @@
 package com.gildedrose
 
 open class Item(var name: String, var sellIn: Int, var quality: Int) {
+
     protected val hasExpired: Boolean
         get() = sellIn < 0
 
     open fun updateQuality() {
-        decrementQuality()
-        decrementSellIn()
+        decreaseQuality()
+        decreaseSellIn()
 
-        if (sellIn < QUALITY_MIN_THRESHOLD) {
-            decrementQuality()
+        if (sellIn < Quality.MINIMUM) {
+            decreaseQuality()
         }
     }
 
-    protected fun incrementQuality() {
-        if (quality < QUALITY_MAX_THRESHOLD) {
+    protected open fun increaseQuality() {
+        if (quality < Quality.MAXIMUM) {
             quality++
         }
     }
 
-    protected fun decrementQuality() {
-        if (quality > QUALITY_MIN_THRESHOLD) {
+    protected fun decreaseQuality() {
+        if (quality > Quality.MINIMUM) {
             quality--
         }
     }
 
-    protected fun decrementSellIn() {
+    protected fun decreaseSellIn() {
         sellIn--
     }
 
@@ -50,10 +51,4 @@ open class Item(var name: String, var sellIn: Int, var quality: Int) {
         result = 31 * result + quality
         return result
     }
-
-    companion object {
-        private const val QUALITY_MAX_THRESHOLD = 50
-        private const val QUALITY_MIN_THRESHOLD = 0
-    }
 }
-

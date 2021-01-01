@@ -2,20 +2,27 @@ package com.gildedrose
 
 class BackstagePasses(name: String, sellIn: Int, quality: Int) : Item(name, sellIn, quality) {
     override fun updateQuality() {
-        repeat(timesToIncrementQuality()) {
-            incrementQuality()
-        }
-
-        decrementSellIn()
+        increaseQuality()
+        decreaseSellIn()
 
         if (hasExpired) {
-            quality = 0
+            dropQualityToMinimum()
         }
     }
 
-    private fun timesToIncrementQuality() = when {
-        sellIn <= 5 -> 3
-        sellIn <= 10 -> 2
+    override fun increaseQuality() {
+        repeat(qualityBonus()) { super.increaseQuality() }
+    }
+
+    private fun qualityBonus() = when {
+        expireInLessThan(5) -> 3
+        expireInLessThan(10) -> 2
         else -> 1
+    }
+
+    private fun expireInLessThan(days: Int) = sellIn <= days
+
+    private fun dropQualityToMinimum() {
+        quality = Quality.MINIMUM
     }
 }
