@@ -1,6 +1,10 @@
 package com.gildedrose
 
-class BackstagePasses(name: String, sellIn: Int, quality: Int) : Item(name, sellIn, quality) {
+data class BackstagePasses(
+    override var name: String,
+    override var sellIn: Int,
+    override var quality: Int,
+) : Item() {
 
     private val qualityBonuses = QualityBonuses(
         QualityBonus(bonus = 3, days = 5),

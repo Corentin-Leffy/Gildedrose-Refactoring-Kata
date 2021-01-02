@@ -7,29 +7,29 @@ import org.junit.jupiter.api.Test
 internal class GildedRoseTest {
 
     private val items = arrayOf(
-        Item("+5 Dexterity Vest", 10, 20), //
+        SimpleItem("+5 Dexterity Vest", 10, 20), //
         Cheese("Aged Brie", 2, 0), //
-        Item("Elixir of the Mongoose", 5, 7), //
+        SimpleItem("Elixir of the Mongoose", 5, 7), //
         Legendary("Sulfuras, Hand of Ragnaros", 0, 80), //
         Legendary("Sulfuras, Hand of Ragnaros", -1, 80),
         BackstagePasses("Backstage passes to a TAFKAL80ETC concert", 15, 20),
         BackstagePasses("Backstage passes to a TAFKAL80ETC concert", 10, 49),
         BackstagePasses("Backstage passes to a TAFKAL80ETC concert", 5, 49),
         // this conjured item does not work properly yet
-        Item("Conjured Mana Cake", 3, 6)
+        SimpleItem("Conjured Mana Cake", 3, 6)
     )
 
     private val legacyItems = arrayOf(
-        Item("+5 Dexterity Vest", 10, 20), //
+        SimpleItem("+5 Dexterity Vest", 10, 20), //
         Cheese("Aged Brie", 2, 0), //
-        Item("Elixir of the Mongoose", 5, 7), //
+        SimpleItem("Elixir of the Mongoose", 5, 7), //
         Legendary("Sulfuras, Hand of Ragnaros", 0, 80), //
         Legendary("Sulfuras, Hand of Ragnaros", -1, 80),
         BackstagePasses("Backstage passes to a TAFKAL80ETC concert", 15, 20),
         BackstagePasses("Backstage passes to a TAFKAL80ETC concert", 10, 49),
         BackstagePasses("Backstage passes to a TAFKAL80ETC concert", 5, 49),
         // this conjured item does not work properly yet
-        Item("Conjured Mana Cake", 3, 6)
+        SimpleItem("Conjured Mana Cake", 3, 6)
     )
 
     @Test
