@@ -1,4 +1,9 @@
-package com.gildedrose
+package com.gildedrose.item
+
+import com.gildedrose.Item
+import com.gildedrose.Quality
+import com.gildedrose.bonus.QualityBonus
+import com.gildedrose.bonus.QualityBonuses
 
 data class BackstagePasses(
     override var name: String,

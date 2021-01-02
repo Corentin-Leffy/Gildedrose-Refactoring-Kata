@@ -1,5 +1,10 @@
 package com.gildedrose
 
+import com.gildedrose.item.BackstagePasses
+import com.gildedrose.item.Cheese
+import com.gildedrose.item.Conjured
+import com.gildedrose.item.Legendary
+import com.gildedrose.item.SimpleItem
 import org.junit.jupiter.api.Assertions.assertArrayEquals
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test

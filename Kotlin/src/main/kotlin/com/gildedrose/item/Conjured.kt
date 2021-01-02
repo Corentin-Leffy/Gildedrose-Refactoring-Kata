@@ -1,4 +1,6 @@
-package com.gildedrose
+package com.gildedrose.item
+
+import com.gildedrose.Item
 
 data class Conjured(
     override var name: String,

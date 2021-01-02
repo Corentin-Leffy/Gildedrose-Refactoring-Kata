@@ -1,4 +1,4 @@
-package com.gildedrose
+package com.gildedrose.bonus
 
 class QualityBonuses(
     vararg bonus: QualityBonus,
