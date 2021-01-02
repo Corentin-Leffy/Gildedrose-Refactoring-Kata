@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test
 class LegendaryTest {
 
     @Test
-    internal fun `Nothing is happening after an update`() {
+    fun `Nothing is happening after an update`() {
         aLegendary(withSellIn = 100, withQuality = 100)
             .afterUpdate()
             .mustBeEqualsTo(aLegendary(withSellIn = 100, withQuality = 100))
