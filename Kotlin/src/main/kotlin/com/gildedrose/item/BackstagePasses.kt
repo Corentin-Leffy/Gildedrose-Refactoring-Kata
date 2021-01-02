@@ -17,15 +17,15 @@ data class BackstagePasses(
     )
 
     override fun updateQuality() {
-        increaseQuality()
+        increaseQualityMultipleTimes()
         decreaseSellIn()
         if (hasExpired) {
             dropQualityToMinimum()
         }
     }
 
-    override fun increaseQuality() {
-        repeat(qualityBonus()) { super.increaseQuality() }
+    private fun increaseQualityMultipleTimes() {
+        repeat(qualityBonus()) { increaseQuality() }
     }
 
     private fun qualityBonus() = qualityBonuses.findBonus { days -> sellIn <= days }

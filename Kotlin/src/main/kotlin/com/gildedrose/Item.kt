@@ -16,7 +16,7 @@ abstract class Item {
         }
     }
 
-    protected open fun increaseQuality() {
+    protected fun increaseQuality() {
         if (quality < Quality.MAXIMUM) {
             quality++
         }

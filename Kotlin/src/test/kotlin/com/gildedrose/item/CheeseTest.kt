@@ -1,5 +1,6 @@
 package com.gildedrose.item
 
+import com.gildedrose.Quality
 import org.junit.jupiter.api.Test
 
 class CheeseTest {
@@ -16,6 +17,13 @@ class CheeseTest {
         aCheese(withSellIn = 0, withQuality = 2)
             .afterUpdate()
             .mustBeEqualsTo(aCheese(withSellIn = -1, withQuality = 4))
+    }
+
+    @Test
+    fun `Quality cannot exceed a ceiling`() {
+        aCheese(withSellIn = 1, withQuality = Quality.MAXIMUM)
+            .afterUpdate()
+            .mustBeEqualsTo(aCheese(withSellIn = 0, withQuality = Quality.MAXIMUM))
     }
 
     private fun aCheese(withSellIn: Int, withQuality: Int): Cheese =

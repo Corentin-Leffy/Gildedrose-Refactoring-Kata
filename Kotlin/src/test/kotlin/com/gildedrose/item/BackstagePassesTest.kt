@@ -1,5 +1,6 @@
 package com.gildedrose.item
 
+import com.gildedrose.Quality
 import org.junit.jupiter.api.Test
 
 class BackstagePassesTest {
@@ -31,6 +32,14 @@ class BackstagePassesTest {
             .afterUpdate()
             .mustBeEqualsTo(aBackstagePasses(withSellIn = -1, withQuality = 0))
     }
+
+    @Test
+    fun `Quality cannot exceed a ceiling`() {
+        aBackstagePasses(withSellIn = 1, withQuality = Quality.MAXIMUM)
+            .afterUpdate()
+            .mustBeEqualsTo(aBackstagePasses(withSellIn = 0, withQuality = Quality.MAXIMUM))
+    }
+
 
     private fun aBackstagePasses(withSellIn: Int, withQuality: Int): BackstagePasses =
         BackstagePasses("", withSellIn, withQuality)
