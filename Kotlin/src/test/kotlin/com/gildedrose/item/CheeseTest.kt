@@ -1,6 +1,5 @@
 package com.gildedrose.item
 
-import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 
 class CheeseTest {
@@ -22,8 +21,4 @@ class CheeseTest {
     private fun aCheese(withSellIn: Int, withQuality: Int): Cheese =
         Cheese("", withSellIn, withQuality)
 
-    private fun Cheese.afterUpdate() = apply { updateQuality() }
-
-    private fun Cheese.mustBeEqualsTo(expectedCheese: Cheese) =
-        assertEquals(expectedCheese, this)
 }

@@ -1,6 +1,5 @@
 package com.gildedrose.item
 
-import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 
 class LegendaryTest {
@@ -14,9 +13,4 @@ class LegendaryTest {
 
     private fun aLegendary(withSellIn: Int, withQuality: Int): Legendary =
         Legendary("", withSellIn, withQuality)
-
-    private fun Legendary.afterUpdate() = apply { updateQuality() }
-
-    private fun Legendary.mustBeEqualsTo(expectedLegendary: Legendary) =
-        Assertions.assertEquals(expectedLegendary, this)
 }
